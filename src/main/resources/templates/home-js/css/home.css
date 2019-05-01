@@ -1,0 +1,178 @@
+html,body {
+    height: 100%;
+}
+html,body,div,table,td,ul,li,p {
+    margin: 0;
+    padding: 0;
+    border-spacing: 0px;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+}
+.div-main {
+    width: 1250px;
+    min-width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+}
+.div-header-list {
+    width: 100%;
+    height: 45px;
+    background-color: #002147;
+}
+.div-header-list img.image-logo {
+    width: 200px;
+    height: 45px;
+    margin-left: 50px;
+}
+.div-header-list table.table-list {
+    display: inline;
+    line-height: 45px;
+    /* margin-top: 15px; */
+    margin-left: 50px;
+}
+.div-header-list table.table-list td {
+    width: 80px;
+    text-align: center;
+}
+.div-header-list table.table-list td+td a{/*兄弟选择器（选择兄弟后面一个），第二个td到最后一个*/
+    display: inline;
+    padding: 0 7px 0 8px;
+    border-left: solid 1px #006bcf;
+}
+.div-header-list table.table-user {
+    /* display: inline-block; */
+    line-height: 45px;
+    float: right;
+    margin: 0 10px 0 0;
+}
+.div-header-list table.table-user td {
+    text-align: center;
+    max-width: 150px;
+    color: #fff;
+    font-size: 14px;
+    /* 文字过长溢出处理 */
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.div-header-list table.table-user img.image-user {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+.div-header-list table.table-user a {
+    font-size: 14px;
+    padding: 0 10px 0 11px;
+    line-height: 25px;
+}
+.div-header-list table.table-user td:last-child a {
+    border-left: solid 1px #006bcf;
+}
+.div-mid {
+    display: table;
+    height: 87%;
+    min-height: 520px;
+    width: 100%;
+}
+.div-left {
+    float: left;
+    width: 25%;
+    height: 100%;
+    background-color: #cccccc;
+    border-top: solid 1px #fff;
+}
+.div-right {
+    float: left;
+    width: 75%;
+    max-height: 800px;
+    overflow-y: auto;
+    /* background-color: blueviolet; */
+}
+.div-address {
+    line-height: 30px;
+    font-size: 14px;
+    padding-left: 10px;
+    background-color: #cccccc;
+    border: solid 1px #fff;
+    border-right-width: 0;
+}
+.div-right div.main-area {
+    padding: 20px; 
+}
+.div-right div.main-area table.tb-userinfo {
+    border-bottom: solid 1px #006bcf;
+    padding: 10px 50px
+}
+.div-right div.main-area table.tb-userinfo-text {
+    margin-left: 30px;
+    line-height: 30px;
+}
+.div-right div.main-area table.tb-userinfo-table {
+    line-height: 35px;
+    /* padding-left: 30px; */
+    width: 100%;
+    border-top: solid 1px #006bcf;
+    border-bottom: solid 1px #006bcf;
+}
+.div-right div.main-area table.tb-userinfo-table td {
+    padding-left: 20px;
+}
+.div-right div.main-area table.tb-userinfo-table tr.tr-search td {
+    border-bottom: solid 1px #006bcf;
+}
+.div-right div.main-area table.tb-userinfo-table tr.tr-head {
+    font-weight: bold;
+}
+.div-right div.main-area table.tb-userinfo-table tr.tr-textarea textarea {
+    resize: vertical;
+    margin-top: 12px;
+    min-height: 15px;
+    max-height: 290px;
+}
+.div-right div.main-area table.tb-userinfo-table td.tb-info-left{
+    width: 20%;
+    text-align: right;
+}
+.div-right div.main-area table.tb-userinfo-table td.td-notice-text {
+    display: block;
+    width: 180px;
+    /* 文字过长溢出处理 */
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.div-right div.main-area table.tb-userinfo-table a,span {
+    color: #006bcf;
+    margin-left: 20px;
+    font-size: 14px;
+}
+.div-right div.main-area table.tb-userinfo-table td.td-btn {
+    text-align: left;
+    padding-left: 10%;
+}
+.div-right div.main-area table.tb-userinfo-table td.td-page {
+    text-align: left;
+    padding-left: 10%;
+    border-top: solid 1px #006bcf;
+}
+.div-right div.main-area table.tb-userinfo-table td.td-btn input {
+    width: 80px;
+    margin: 0 10px;
+}
+.div-right div.main-area table.tb-userinfo-table td.td-import-export input {
+    width: 110px;
+    margin-left: 40px;
+}
+.div-footer {
+    color: #cccccc;
+    background-color: #002147;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center
+}
+.div-footer p a {
+    color: #006bcf;
+}

@@ -1,0 +1,124 @@
+
+//新生账户
+[
+	{
+		"name": "信息管理",
+		"submenu": [{
+				"name": "基本信息",
+				"url": "/api/user/showuserinfo"
+			},{
+				"name": "详细信息",
+				"url": "/api/stu/moreinfo?type=show"
+			},{
+				"name": "信息修改",
+				"url": "/api/stu/moreinfo?type=change"
+			},{
+				"name": "密码修改",
+				"url": "/web/model?au=2&model=1&item=4"
+			}
+		]
+	}, {
+		"name": "在线报到",
+		"submenu": [{
+				"name": "在线报到",
+				"url": "/web/model?au=2&model=2&item=1"
+			}
+		]
+	}
+]
+
+// 教师账户
+[
+	{
+		"name": "信息管理",
+		"submenu": [{
+				"name": "基本信息",
+				"url": "/api/user/showuserinfo"
+			},{
+				"name": "详细信息",
+				"url": "/api/teacher/moreinfo?type=show"
+			},{
+				"name": "信息修改",
+				"url": "/api/teacher/moreinfo?type=change"
+			},{
+				"name": "密码修改",
+				"url": "/web/model?au=1&model=1&item=4"
+			}
+		]
+	}, {
+		"name": "新生管理",
+		"submenu": [{
+				"name": "查询",
+				"url": "/api/teacher/stulist"
+			},{
+				"name": "添加",
+				"url": "/web/model?au=1&model=2&item=2"
+			},{
+				"name": "修改",
+				"url": "/web/model?au=1&model=2&item=3"
+			},{
+				"name": "删除",
+				"url": "/web/model?au=1&model=2&item=4"
+			},{
+				"name": "导入/导出",
+				"url": "/web/model?au=1&model=2&item=5"
+			}
+		]
+	}
+]
+
+//管理员账户
+[
+	{
+		"name": "信息管理",
+		"submenu": [{
+				"name": "基本信息",
+				"url": "/api/user/showuserinfo"
+			},{
+				"name": "详细信息",
+				"url": "/api/user/moreinfo"
+			},{
+				"name": "信息修改",
+				"url": "/web/model?au=0&model=1&item=3"
+			},{
+				"name": "密码修改",
+				"url": "/web/model?au=0&model=1&item=4"
+			}
+		]
+	}, {
+		"name": "账户管理",
+		"submenu": [{
+				"name": "查询账户",
+				"url": "/api/user/showlist"
+			},{
+				"name": "添加账户",
+				"url": "/web/model?au=0&model=2&item=2"
+			},{
+				"name": "修改账户",
+				"url": "/web/model?au=0&model=2&item=3"
+			},{
+				"name": "删除账户",
+				"url": "/web/model?au=0&model=2&item=4"
+			},{
+				"name": "导入/导出",
+				"url": "/web/model?au=0&model=2&item=5"
+			}
+		]
+	}, {
+		"name": "公告管理",
+		"submenu": [{
+				"name": "查看公告",
+				"url": "/notice/showlist"
+			}, {
+				"name": "发布公告",
+				"url": "/web/model?au=0&model=3&item=2"
+			}, {
+				"name": "修改公告",
+				"url": "/web/model?au=0&model=3&item=3"
+			}, {
+				"name": "删除公告",
+				"url": "/web/model?au=0&model=3&item=4"
+			}
+		]
+	}
+]

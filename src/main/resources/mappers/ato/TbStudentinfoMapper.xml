@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzx.xsbdsys.repository.ato.TbStudentinfoMapper">
+  <resultMap id="BaseResultMap" type="com.wzx.xsbdsys.model.ato.TbStudentinfo">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="StuId" jdbcType="VARCHAR" property="stuid" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Sex" jdbcType="VARCHAR" property="sex" />
+    <result column="DateOfBirth" jdbcType="DATE" property="dateofbirth" />
+    <result column="IDCard" jdbcType="VARCHAR" property="idcard" />
+    <result column="Nation" jdbcType="VARCHAR" property="nation" />
+    <result column="EnrollmentNumber" jdbcType="VARCHAR" property="enrollmentnumber" />
+    <result column="NativePlace" jdbcType="VARCHAR" property="nativeplace" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="FormerSchool" jdbcType="VARCHAR" property="formerschool" />
+    <result column="Tel" jdbcType="VARCHAR" property="tel" />
+    <result column="QQ" jdbcType="VARCHAR" property="qq" />
+    <result column="Email" jdbcType="VARCHAR" property="email" />
+    <result column="ParentName" jdbcType="VARCHAR" property="parentname" />
+    <result column="ParentTel" jdbcType="VARCHAR" property="parenttel" />
+    <result column="MajorID" jdbcType="VARCHAR" property="majorid" />
+    <result column="ClassID" jdbcType="VARCHAR" property="classid" />
+    <result column="DormitoryID" jdbcType="VARCHAR" property="dormitoryid" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, StuId, Name, Sex, DateOfBirth, IDCard, Nation, EnrollmentNumber, NativePlace, 
+    Address, FormerSchool, Tel, QQ, Email, ParentName, ParentTel, MajorID, ClassID, DormitoryID
+  </sql>
+  <select id="selectByExample" parameterType="com.wzx.xsbdsys.model.ato.TbStudentinfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_studentinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_studentinfo
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_studentinfo
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.wzx.xsbdsys.model.ato.TbStudentinfoExample">
+    delete from tb_studentinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.wzx.xsbdsys.model.ato.TbStudentinfo">
+    insert into tb_studentinfo (ID, StuId, Name, 
+      Sex, DateOfBirth, IDCard, 
+      Nation, EnrollmentNumber, NativePlace, 
+      Address, FormerSchool, Tel, 
+      QQ, Email, ParentName, 
+      ParentTel, MajorID, ClassID, 
+      DormitoryID)
+    values (#{id,jdbcType=INTEGER}, #{stuid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{dateofbirth,jdbcType=DATE}, #{idcard,jdbcType=VARCHAR}, 
+      #{nation,jdbcType=VARCHAR}, #{enrollmentnumber,jdbcType=VARCHAR}, #{nativeplace,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{formerschool,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{qq,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{parentname,jdbcType=VARCHAR}, 
+      #{parenttel,jdbcType=VARCHAR}, #{majorid,jdbcType=VARCHAR}, #{classid,jdbcType=VARCHAR}, 
+      #{dormitoryid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wzx.xsbdsys.model.ato.TbStudentinfo">
+    insert into tb_studentinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="stuid != null">
+        StuId,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="sex != null">
+        Sex,
+      </if>
+      <if test="dateofbirth != null">
+        DateOfBirth,
+      </if>
+      <if test="idcard != null">
+        IDCard,
+      </if>
+      <if test="nation != null">
+        Nation,
+      </if>
+      <if test="enrollmentnumber != null">
+        EnrollmentNumber,
+      </if>
+      <if test="nativeplace != null">
+        NativePlace,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="formerschool != null">
+        FormerSchool,
+      </if>
+      <if test="tel != null">
+        Tel,
+      </if>
+      <if test="qq != null">
+        QQ,
+      </if>
+      <if test="email != null">
+        Email,
+      </if>
+      <if test="parentname != null">
+        ParentName,
+      </if>
+      <if test="parenttel != null">
+        ParentTel,
+      </if>
+      <if test="majorid != null">
+        MajorID,
+      </if>
+      <if test="classid != null">
+        ClassID,
+      </if>
+      <if test="dormitoryid != null">
+        DormitoryID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stuid != null">
+        #{stuid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="dateofbirth != null">
+        #{dateofbirth,jdbcType=DATE},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="enrollmentnumber != null">
+        #{enrollmentnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplace != null">
+        #{nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="formerschool != null">
+        #{formerschool,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="parentname != null">
+        #{parentname,jdbcType=VARCHAR},
+      </if>
+      <if test="parenttel != null">
+        #{parenttel,jdbcType=VARCHAR},
+      </if>
+      <if test="majorid != null">
+        #{majorid,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null">
+        #{classid,jdbcType=VARCHAR},
+      </if>
+      <if test="dormitoryid != null">
+        #{dormitoryid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.wzx.xsbdsys.model.ato.TbStudentinfoExample" resultType="java.lang.Long">
+    select count(*) from tb_studentinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_studentinfo
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.stuid != null">
+        StuId = #{record.stuid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        Name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        Sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dateofbirth != null">
+        DateOfBirth = #{record.dateofbirth,jdbcType=DATE},
+      </if>
+      <if test="record.idcard != null">
+        IDCard = #{record.idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nation != null">
+        Nation = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enrollmentnumber != null">
+        EnrollmentNumber = #{record.enrollmentnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nativeplace != null">
+        NativePlace = #{record.nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null">
+        Address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.formerschool != null">
+        FormerSchool = #{record.formerschool,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel != null">
+        Tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qq != null">
+        QQ = #{record.qq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        Email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentname != null">
+        ParentName = #{record.parentname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parenttel != null">
+        ParentTel = #{record.parenttel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.majorid != null">
+        MajorID = #{record.majorid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classid != null">
+        ClassID = #{record.classid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dormitoryid != null">
+        DormitoryID = #{record.dormitoryid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_studentinfo
+    set ID = #{record.id,jdbcType=INTEGER},
+      StuId = #{record.stuid,jdbcType=VARCHAR},
+      Name = #{record.name,jdbcType=VARCHAR},
+      Sex = #{record.sex,jdbcType=VARCHAR},
+      DateOfBirth = #{record.dateofbirth,jdbcType=DATE},
+      IDCard = #{record.idcard,jdbcType=VARCHAR},
+      Nation = #{record.nation,jdbcType=VARCHAR},
+      EnrollmentNumber = #{record.enrollmentnumber,jdbcType=VARCHAR},
+      NativePlace = #{record.nativeplace,jdbcType=VARCHAR},
+      Address = #{record.address,jdbcType=VARCHAR},
+      FormerSchool = #{record.formerschool,jdbcType=VARCHAR},
+      Tel = #{record.tel,jdbcType=VARCHAR},
+      QQ = #{record.qq,jdbcType=VARCHAR},
+      Email = #{record.email,jdbcType=VARCHAR},
+      ParentName = #{record.parentname,jdbcType=VARCHAR},
+      ParentTel = #{record.parenttel,jdbcType=VARCHAR},
+      MajorID = #{record.majorid,jdbcType=VARCHAR},
+      ClassID = #{record.classid,jdbcType=VARCHAR},
+      DormitoryID = #{record.dormitoryid,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wzx.xsbdsys.model.ato.TbStudentinfo">
+    update tb_studentinfo
+    <set>
+      <if test="stuid != null">
+        StuId = #{stuid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        Sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="dateofbirth != null">
+        DateOfBirth = #{dateofbirth,jdbcType=DATE},
+      </if>
+      <if test="idcard != null">
+        IDCard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        Nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="enrollmentnumber != null">
+        EnrollmentNumber = #{enrollmentnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplace != null">
+        NativePlace = #{nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="formerschool != null">
+        FormerSchool = #{formerschool,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        Tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        QQ = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        Email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="parentname != null">
+        ParentName = #{parentname,jdbcType=VARCHAR},
+      </if>
+      <if test="parenttel != null">
+        ParentTel = #{parenttel,jdbcType=VARCHAR},
+      </if>
+      <if test="majorid != null">
+        MajorID = #{majorid,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null">
+        ClassID = #{classid,jdbcType=VARCHAR},
+      </if>
+      <if test="dormitoryid != null">
+        DormitoryID = #{dormitoryid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wzx.xsbdsys.model.ato.TbStudentinfo">
+    update tb_studentinfo
+    set StuId = #{stuid,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      Sex = #{sex,jdbcType=VARCHAR},
+      DateOfBirth = #{dateofbirth,jdbcType=DATE},
+      IDCard = #{idcard,jdbcType=VARCHAR},
+      Nation = #{nation,jdbcType=VARCHAR},
+      EnrollmentNumber = #{enrollmentnumber,jdbcType=VARCHAR},
+      NativePlace = #{nativeplace,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      FormerSchool = #{formerschool,jdbcType=VARCHAR},
+      Tel = #{tel,jdbcType=VARCHAR},
+      QQ = #{qq,jdbcType=VARCHAR},
+      Email = #{email,jdbcType=VARCHAR},
+      ParentName = #{parentname,jdbcType=VARCHAR},
+      ParentTel = #{parenttel,jdbcType=VARCHAR},
+      MajorID = #{majorid,jdbcType=VARCHAR},
+      ClassID = #{classid,jdbcType=VARCHAR},
+      DormitoryID = #{dormitoryid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

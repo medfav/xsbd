@@ -1,0 +1,121 @@
+html,body {
+    height: 100%;
+}
+html,body,div,table,td,ul,li,p {
+    margin: 0;
+    padding: 0;
+    border-spacing: 0px;
+}
+a {
+    /* color: #fff; */
+    text-decoration: none;
+}
+.div-main {
+    width: 1250px;
+    min-width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+}
+.div-header-list {
+    width: 100%;
+    height: 45px;
+    background-color: #002147;
+}
+.div-header-list img.image-logo {
+    width: 200px;
+    height: 45px;
+    margin-left: 50px;
+}
+.div-mid {
+    display: table;
+    height: 87%;
+    min-height: 520px;
+    width: 100%;
+}
+.div-left {
+    float: left;
+    width: 25%;
+    height: 100%;
+    background-color: #cccccc;
+    border-top: solid 1px #fff;
+    overflow: auto;
+}
+.div-left ul {
+    
+}
+.div-left li {
+    /* color: #006bcf; */
+    line-height: 24px;
+    list-style: none;
+    margin: 3px 0px;
+
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.div-left li a {
+    color: #006bcf;
+    font-size: 14px;
+    padding-left: 10px;
+    display: block;
+    width: 100%;
+}
+.div-left li a span {
+    color: #000000;
+    font-size: 14px;
+    padding-left: 5px;
+}
+/* .div-left li:hover {
+    color: #ffffff;
+    background-color: #3490e7;
+} */
+.div-left li a:hover {
+    color: #ffffff;
+    background-color: #3490e7;
+}
+.div-right {
+    float: left;
+    width: 75%;
+    max-height: 800px;
+    overflow-y: auto;
+    /* background-color: blueviolet; */
+}
+.div-right table.tb-notice {
+    width: 100%;
+}
+.div-right table.tb-notice {
+    padding: 0px 20px;
+}
+.div-right table.tb-notice td.td-notice-title {
+    border-bottom: solid 1px #006bcf;
+    line-height: 40px;
+    text-align: center;
+    color: #006bcf;
+    font-size: 20px;
+} 
+.div-right table.tb-notice tr.tr-notice-info td {
+    text-align: center;
+    width: 50%;
+    line-height: 30px;
+    padding-bottom: 10px;
+    color: #888;
+    font-size: 12px;
+}
+.div-right table.tb-notice td.td-nitice-text {
+    padding: 5px 20px;
+}
+.div-right table.tb-notice td pre {
+    white-space:pre-wrap;
+    font-size: 16px;
+    line-height: 25px;
+}
+.div-footer {
+    color: #cccccc;
+    background-color: #002147;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center
+}
+.div-footer p a {
+    color: #006bcf;
+}

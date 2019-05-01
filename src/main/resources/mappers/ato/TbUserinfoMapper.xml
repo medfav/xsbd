@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzx.xsbdsys.repository.ato.TbUserinfoMapper">
+  <resultMap id="BaseResultMap" type="com.wzx.xsbdsys.model.ato.TbUserinfo">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <id column="UserName" jdbcType="VARCHAR" property="username" />
+    <result column="StuId" jdbcType="VARCHAR" property="stuid" />
+    <result column="TeacherID" jdbcType="VARCHAR" property="teacherid" />
+    <result column="UserPwd" jdbcType="VARCHAR" property="userpwd" />
+    <result column="Authority" jdbcType="INTEGER" property="authority" />
+    <result column="UserStyle" jdbcType="VARCHAR" property="userstyle" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Sex" jdbcType="VARCHAR" property="sex" />
+    <result column="RegisterStatic" jdbcType="VARCHAR" property="registerstatic" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, UserName, StuId, TeacherID, UserPwd, Authority, UserStyle, Name, Sex, RegisterStatic
+  </sql>
+  <select id="selectByExample" parameterType="com.wzx.xsbdsys.model.ato.TbUserinfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_userinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.wzx.xsbdsys.model.ato.TbUserinfoKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_userinfo
+    where ID = #{id,jdbcType=INTEGER}
+      and UserName = #{username,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wzx.xsbdsys.model.ato.TbUserinfoKey">
+    delete from tb_userinfo
+    where ID = #{id,jdbcType=INTEGER}
+      and UserName = #{username,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.wzx.xsbdsys.model.ato.TbUserinfoExample">
+    delete from tb_userinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.wzx.xsbdsys.model.ato.TbUserinfo">
+    insert into tb_userinfo (ID, UserName, StuId, 
+      TeacherID, UserPwd, Authority, 
+      UserStyle, Name, Sex, 
+      RegisterStatic)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{stuid,jdbcType=VARCHAR}, 
+      #{teacherid,jdbcType=VARCHAR}, #{userpwd,jdbcType=VARCHAR}, #{authority,jdbcType=INTEGER}, 
+      #{userstyle,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{registerstatic,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wzx.xsbdsys.model.ato.TbUserinfo">
+    insert into tb_userinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="username != null">
+        UserName,
+      </if>
+      <if test="stuid != null">
+        StuId,
+      </if>
+      <if test="teacherid != null">
+        TeacherID,
+      </if>
+      <if test="userpwd != null">
+        UserPwd,
+      </if>
+      <if test="authority != null">
+        Authority,
+      </if>
+      <if test="userstyle != null">
+        UserStyle,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="sex != null">
+        Sex,
+      </if>
+      <if test="registerstatic != null">
+        RegisterStatic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="stuid != null">
+        #{stuid,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherid != null">
+        #{teacherid,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null">
+        #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="authority != null">
+        #{authority,jdbcType=INTEGER},
+      </if>
+      <if test="userstyle != null">
+        #{userstyle,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="registerstatic != null">
+        #{registerstatic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.wzx.xsbdsys.model.ato.TbUserinfoExample" resultType="java.lang.Long">
+    select count(*) from tb_userinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_userinfo
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.username != null">
+        UserName = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuid != null">
+        StuId = #{record.stuid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherid != null">
+        TeacherID = #{record.teacherid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userpwd != null">
+        UserPwd = #{record.userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.authority != null">
+        Authority = #{record.authority,jdbcType=INTEGER},
+      </if>
+      <if test="record.userstyle != null">
+        UserStyle = #{record.userstyle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        Name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        Sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registerstatic != null">
+        RegisterStatic = #{record.registerstatic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_userinfo
+    set ID = #{record.id,jdbcType=INTEGER},
+      UserName = #{record.username,jdbcType=VARCHAR},
+      StuId = #{record.stuid,jdbcType=VARCHAR},
+      TeacherID = #{record.teacherid,jdbcType=VARCHAR},
+      UserPwd = #{record.userpwd,jdbcType=VARCHAR},
+      Authority = #{record.authority,jdbcType=INTEGER},
+      UserStyle = #{record.userstyle,jdbcType=VARCHAR},
+      Name = #{record.name,jdbcType=VARCHAR},
+      Sex = #{record.sex,jdbcType=VARCHAR},
+      RegisterStatic = #{record.registerstatic,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wzx.xsbdsys.model.ato.TbUserinfo">
+    update tb_userinfo
+    <set>
+      <if test="stuid != null">
+        StuId = #{stuid,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherid != null">
+        TeacherID = #{teacherid,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null">
+        UserPwd = #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="authority != null">
+        Authority = #{authority,jdbcType=INTEGER},
+      </if>
+      <if test="userstyle != null">
+        UserStyle = #{userstyle,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        Sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="registerstatic != null">
+        RegisterStatic = #{registerstatic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+      and UserName = #{username,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wzx.xsbdsys.model.ato.TbUserinfo">
+    update tb_userinfo
+    set StuId = #{stuid,jdbcType=VARCHAR},
+      TeacherID = #{teacherid,jdbcType=VARCHAR},
+      UserPwd = #{userpwd,jdbcType=VARCHAR},
+      Authority = #{authority,jdbcType=INTEGER},
+      UserStyle = #{userstyle,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      Sex = #{sex,jdbcType=VARCHAR},
+      RegisterStatic = #{registerstatic,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+      and UserName = #{username,jdbcType=VARCHAR}
+  </update>
+</mapper>

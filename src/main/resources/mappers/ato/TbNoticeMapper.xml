@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzx.xsbdsys.repository.ato.TbNoticeMapper">
+  <resultMap id="BaseResultMap" type="com.wzx.xsbdsys.model.ato.TbNotice">
+    <id column="NoticeID" jdbcType="INTEGER" property="noticeid" />
+    <result column="NoticeTitle" jdbcType="VARCHAR" property="noticetitle" />
+    <result column="UserID" jdbcType="VARCHAR" property="userid" />
+    <result column="CreateData" jdbcType="TIMESTAMP" property="createdata" />
+    <result column="ChangeDate" jdbcType="TIMESTAMP" property="changedate" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.wzx.xsbdsys.model.ato.TbNotice">
+    <result column="NoticeText" jdbcType="LONGVARCHAR" property="noticetext" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    NoticeID, NoticeTitle, UserID, CreateData, ChangeDate
+  </sql>
+  <sql id="Blob_Column_List">
+    NoticeText
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.wzx.xsbdsys.model.ato.TbNoticeExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_notice
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.wzx.xsbdsys.model.ato.TbNoticeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_notice
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_notice
+    where NoticeID = #{noticeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_notice
+    where NoticeID = #{noticeid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.wzx.xsbdsys.model.ato.TbNoticeExample">
+    delete from tb_notice
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.wzx.xsbdsys.model.ato.TbNotice">
+    insert into tb_notice (NoticeID, NoticeTitle, UserID, 
+      CreateData, ChangeDate, NoticeText
+      )
+    values (#{noticeid,jdbcType=INTEGER}, #{noticetitle,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{createdata,jdbcType=TIMESTAMP}, #{changedate,jdbcType=TIMESTAMP}, #{noticetext,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wzx.xsbdsys.model.ato.TbNotice">
+    insert into tb_notice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="noticeid != null">
+        NoticeID,
+      </if>
+      <if test="noticetitle != null">
+        NoticeTitle,
+      </if>
+      <if test="userid != null">
+        UserID,
+      </if>
+      <if test="createdata != null">
+        CreateData,
+      </if>
+      <if test="changedate != null">
+        ChangeDate,
+      </if>
+      <if test="noticetext != null">
+        NoticeText,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="noticeid != null">
+        #{noticeid,jdbcType=INTEGER},
+      </if>
+      <if test="noticetitle != null">
+        #{noticetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdata != null">
+        #{createdata,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changedate != null">
+        #{changedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noticetext != null">
+        #{noticetext,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.wzx.xsbdsys.model.ato.TbNoticeExample" resultType="java.lang.Long">
+    select count(*) from tb_notice
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_notice
+    <set>
+      <if test="record.noticeid != null">
+        NoticeID = #{record.noticeid,jdbcType=INTEGER},
+      </if>
+      <if test="record.noticetitle != null">
+        NoticeTitle = #{record.noticetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userid != null">
+        UserID = #{record.userid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdata != null">
+        CreateData = #{record.createdata,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.changedate != null">
+        ChangeDate = #{record.changedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.noticetext != null">
+        NoticeText = #{record.noticetext,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update tb_notice
+    set NoticeID = #{record.noticeid,jdbcType=INTEGER},
+      NoticeTitle = #{record.noticetitle,jdbcType=VARCHAR},
+      UserID = #{record.userid,jdbcType=VARCHAR},
+      CreateData = #{record.createdata,jdbcType=TIMESTAMP},
+      ChangeDate = #{record.changedate,jdbcType=TIMESTAMP},
+      NoticeText = #{record.noticetext,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_notice
+    set NoticeID = #{record.noticeid,jdbcType=INTEGER},
+      NoticeTitle = #{record.noticetitle,jdbcType=VARCHAR},
+      UserID = #{record.userid,jdbcType=VARCHAR},
+      CreateData = #{record.createdata,jdbcType=TIMESTAMP},
+      ChangeDate = #{record.changedate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wzx.xsbdsys.model.ato.TbNotice">
+    update tb_notice
+    <set>
+      <if test="noticetitle != null">
+        NoticeTitle = #{noticetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        UserID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdata != null">
+        CreateData = #{createdata,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changedate != null">
+        ChangeDate = #{changedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noticetext != null">
+        NoticeText = #{noticetext,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where NoticeID = #{noticeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wzx.xsbdsys.model.ato.TbNotice">
+    update tb_notice
+    set NoticeTitle = #{noticetitle,jdbcType=VARCHAR},
+      UserID = #{userid,jdbcType=VARCHAR},
+      CreateData = #{createdata,jdbcType=TIMESTAMP},
+      ChangeDate = #{changedate,jdbcType=TIMESTAMP},
+      NoticeText = #{noticetext,jdbcType=LONGVARCHAR}
+    where NoticeID = #{noticeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wzx.xsbdsys.model.ato.TbNotice">
+    update tb_notice
+    set NoticeTitle = #{noticetitle,jdbcType=VARCHAR},
+      UserID = #{userid,jdbcType=VARCHAR},
+      CreateData = #{createdata,jdbcType=TIMESTAMP},
+      ChangeDate = #{changedate,jdbcType=TIMESTAMP}
+    where NoticeID = #{noticeid,jdbcType=INTEGER}
+  </update>
+</mapper>

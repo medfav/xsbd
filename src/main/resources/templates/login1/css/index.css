@@ -1,0 +1,190 @@
+html {
+    overflow: hidden;
+}
+html,body,div,table,p {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration-line: none;
+}
+.main {
+    width: 100%;
+    height: 557px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.framediv {
+    background-color: #002147;
+    height: 127px;
+    min-width: 1200px;
+}
+.headdiv {
+    height: 45px;
+}
+.banner {
+    margin: 0 auto;
+    width: 1178px;
+    background: url(../images/pagetopbg.png) no-repeat;
+}
+.listdiv {
+    height: 27px;
+    margin-top: 4px;
+    background-color: #001833;
+    border-bottom: solid 1px #006bcf;
+}
+.listdiv table tr td {
+    height: 24px;
+    color: #fff;
+    width: 100px;
+    text-align: center;
+    border-left: solid 1px #ffffff1a;
+}
+.listdiv table tr td:hover {
+    background-color: #006bcf;
+    width: 100px;
+    text-align: center;
+    Border-radius: 5px 5px 0 0;
+}
+.actionDiv {
+    background-color: #006bcf;
+    width: 100px;
+    text-align: center;
+    Border-radius: 5px 5px 0 0;
+}
+.listdiv table tr .tdfirst {
+    border-left: 0px ;
+}
+.listdiv a {
+    color: #fff;
+    padding: 0 18px;
+}
+.maindiv {
+    height: 400px;
+    margin-top: 1px;
+    background-color: #ffffff00;
+    background: url(../images/index_bgright.jpg) no-repeat right;
+}
+.maindiv img {
+    float: right;
+}
+iframe {
+    width: 50%;
+    height: 100%;
+}
+.mainlist {
+    float: left;
+    height: 400px;
+    color: #002147;
+    font-size: 14px;
+    line-height: 30px;
+}
+.mainlist a {
+    color: #006bcf;
+}
+.mainlist a.more-a {
+    margin-left: 40px;
+}
+.more-a {
+    float: left;
+    font-size: 14px;
+    color: #006bcf;
+}
+.linkbtn {
+    display: table;
+    width: 490px;
+}
+.linkbtn a.more-a {
+    margin-left: 95px;
+}
+.btndiv a.icon-1 {
+    background-position: 0 0;
+}
+.btndiv a.icon-2 {
+    background-position: 0 -83px;
+}
+.btndiv a.icon-3 {
+    background-position: 0 -167px;
+}
+.btndiv a.icon-4 {
+    background-position: 0 -248px;
+}
+.btndiv a.icon-5 {
+    background-position: 0 -334px;
+}
+.btndiv a.icon-6 {
+    background-position: 0 -417px;
+}
+
+.btndiv {
+    width: 300px;
+    padding: 85px 0 0 94px;
+    display: table;
+}
+.btndiv a {
+    background: url(../images/imgbtn.png) no-repeat;
+    padding-top: 35px;
+    margin-right: 40px;
+    line-height: 45px;
+    color: #006bcf;
+    width: 60px;
+    font-size: 14px;
+    text-align: center;
+    float: left;
+} 
+.btndiv a:hover {
+    background-position-x: -99px;
+} 
+.login-div {
+    padding: 70px 0 0 100px;
+}
+.login-div .bgcolor {
+    padding: 10PX 30px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: solid 1px #cccccc;
+    box-shadow: -5px 5px 10px #666;
+}
+.login-div .title-td {
+    font-size: 18px;
+    font-weight: bold;
+}
+.login-div table {
+    line-height: 35px;
+    border: solid 1px #fff; 
+    padding: 5PX 20PX;
+}
+.tb-login td.title-td,.btn-td {
+    text-align: center;
+}
+.tb-login td.btn-td input {
+    padding: 2px 10px;
+    margin: 0 10px;
+    border-radius: 15px;
+    background-color: #fff;
+}
+.tb-login select {
+    width: 153px;
+    height: 22px;
+}
+.tb-login td.input-td input {
+    width: 149px;
+}
+.footdiv {
+    height: 30px;
+    background-color: #002147;
+}
+.footdiv p {
+    line-height: 30px;
+    color: #cccccc;
+    font-size: 12px;
+    text-align: center;
+}
+.footdiv p a {
+    color: #006bcf;
+    font-size: 12px;
+}
