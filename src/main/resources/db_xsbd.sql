@@ -18,6 +18,17 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
+-- Create database db_xsbd
+-- ----------------------------
+drop database  if exists db_xsbd;
+create database db_xsbd charset utf8;
+
+-- ----------------------------
+-- Select database db_xsbd
+-- ----------------------------
+use db_xsbd;
+
+-- ----------------------------
 -- Table structure for tb_authority
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_authority`;
