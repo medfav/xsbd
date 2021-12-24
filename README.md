@@ -42,6 +42,9 @@ java -jar xsbd-1.0-SNAPSHOT.jar
 java -jar xsbd-1.0-SNAPSHOT.jar --spring.datasource.url=jdbc:mysql://127.0.0.1:3306/db_xsbd? --useSSL=false --useUnicode=true --characterEncoding=UTF-8 --spring.datasource.username=YourUsername --spring.datasource.password=YourPassword
 ```
 
+### 成功运行
+运行完成后，通过 [http://localhost:8080/web/login](http://localhost:8080/web/login) 进入网站。
+
 ### 结语
 作为应付毕业设计的作品，只花了一周仓促写出来的，可能存在一些问题的，不过各个功能都是可以正常使用的。但是不排除会有一些问题，如：不支持打包运行，因为我没有配置。  
 注：所有ato包里的类都是mybatis-Plus生成的，也可以用mybatis-generator生成。
