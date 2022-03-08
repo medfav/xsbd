@@ -19,7 +19,7 @@
         <mybatis-spring-boot-starter.version>2.0.0</mybatis-spring-boot-starter.version>
         <orika-core.version>1.5.4</orika-core.version>
         <pagehelper-spring-boot-starter.version>1.2.10</pagehelper-spring-boot-starter.version>
-        <poi.version>3.11-beta2</poi.version>
+        <poi.version>5.2.1</poi.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <commons-io.version>2.7</commons-io.version>
         <commons-fileupload.version>1.3.3</commons-fileupload.version>
